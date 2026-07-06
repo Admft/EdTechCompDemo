@@ -185,7 +185,7 @@ body {
   );
 }
 
-/* Softens hard edges where content zones meet gradient bridges */
+/* Light zone background — matches bridge end color for a seamless handoff */
 .zone-light {
   background: linear-gradient(
     180deg,

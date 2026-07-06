@@ -90,9 +90,10 @@ function normalizeIsef(extracted: {
   sourceUrl: string;
   sourceName: string;
 }): Competition {
-  const title = extracted.pageTitle.includes("ISEF")
+  const cleanedTitle = extracted.pageTitle.replace(/\s*[-|–]\s*Society for Science\s*$/i, "");
+  const title = /science and engineering fair|isef/i.test(cleanedTitle)
     ? "Regeneron International Science and Engineering Fair (ISEF)"
-    : extracted.pageTitle;
+    : cleanedTitle;
 
   const description =
     extracted.metaDescription ??

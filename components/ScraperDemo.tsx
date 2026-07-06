@@ -92,7 +92,9 @@ export default function ScraperDemo() {
           >
             Regeneron ISEF page
           </a>{" "}
-          — and only that page. No arbitrary URLs, no bypassing site protections.
+          — and only that page. No arbitrary URLs, no bypassing site protections. Each
+          approved page becomes one clean, structured record: the index grows source by
+          source, not by blind crawling.
         </p>
 
         <ol className="relative mt-7 space-y-1">
@@ -200,40 +202,62 @@ export default function ScraperDemo() {
         {status === "success" && scrapedCompetition && (
           <div className="animate-fade-up">
             <CompetitionCard competition={scrapedCompetition} highlight />
-            {result?.extracted && (
+            {result?.fieldMap && result.fieldMap.length > 0 && (
               <div className="mt-4 rounded-2xl border border-indigo-100 bg-white p-5 shadow-sm shadow-indigo-100/60">
                 <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-                  Raw signals extracted
+                  How this record was built
                 </p>
-                <dl className="mt-3 space-y-2 text-xs text-slate-500">
-                  <div>
-                    <dt className="font-medium text-slate-400">Page title</dt>
-                    <dd className="mt-0.5 text-slate-700">{result.extracted.pageTitle}</dd>
+                <p className="mt-1.5 text-[11px] leading-relaxed text-slate-400">
+                  One approved page in, one structured competition out. Each field shows
+                  where its value came from.
+                </p>
+                <div className="mt-3 divide-y divide-indigo-50">
+                  {result.fieldMap.map((m) => (
+                    <div key={m.field} className="flex items-start gap-3 py-2.5 text-xs">
+                      <span className="w-[4.5rem] shrink-0 pt-0.5 font-semibold capitalize text-slate-400">
+                        {m.field}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="line-clamp-1 font-medium text-slate-700">{m.value}</p>
+                        <p className="mt-0.5 text-[10px] leading-relaxed text-slate-400">
+                          {m.note}
+                        </p>
+                      </div>
+                      <span
+                        className={`mt-0.5 shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-semibold ${
+                          m.source === "extracted"
+                            ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                            : m.source === "detected"
+                              ? "border-sky-200 bg-sky-50 text-sky-700"
+                              : "border-violet-200 bg-violet-50 text-violet-700"
+                        }`}
+                      >
+                        {m.source === "extracted"
+                          ? "From page"
+                          : m.source === "detected"
+                            ? "Detected"
+                            : "Curated"}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                {result.extracted && result.extracted.headings.length > 0 && (
+                  <div className="mt-3 border-t border-indigo-50 pt-3">
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-400">
+                      Competition signals found on the page
+                    </p>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      {result.extracted.headings.map((h) => (
+                        <span
+                          key={h}
+                          className="rounded-md border border-indigo-100 bg-[#f6f4fd] px-2 py-0.5 text-[11px] text-slate-600"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  {result.extracted.metaDescription && (
-                    <div>
-                      <dt className="font-medium text-slate-400">Meta description</dt>
-                      <dd className="mt-0.5 line-clamp-2 text-slate-700">
-                        {result.extracted.metaDescription}
-                      </dd>
-                    </div>
-                  )}
-                  {result.extracted.headings.length > 0 && (
-                    <div>
-                      <dt className="font-medium text-slate-400">Headings found</dt>
-                      <dd className="mt-1 flex flex-wrap gap-1.5">
-                        {result.extracted.headings.map((h) => (
-                          <span
-                            key={h}
-                            className="rounded-md border border-indigo-100 bg-[#f6f4fd] px-2 py-0.5 text-[11px] text-slate-600"
-                          >
-                            {h}
-                          </span>
-                        ))}
-                      </dd>
-                    </div>
-                  )}
-                </dl>
+                )}
               </div>
             )}
           </div>

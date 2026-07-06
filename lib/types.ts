@@ -33,6 +33,18 @@ export interface Competition {
   provenance?: "seed" | "scraped+normalized";
 }
 
+/**
+ * Explains how one field of the normalized Competition was produced:
+ * pulled straight off the page, inferred from keywords found on the
+ * page, or filled from the curated profile for this approved source.
+ */
+export interface FieldMapping {
+  field: string;
+  value: string;
+  source: "extracted" | "detected" | "curated";
+  note: string;
+}
+
 export interface ScrapeResult {
   ok: boolean;
   competition?: Competition;
@@ -40,10 +52,13 @@ export interface ScrapeResult {
   extracted?: {
     pageTitle: string;
     metaDescription: string | null;
+    /** Headings that matched competition-related keywords. */
     headings: string[];
     sourceUrl: string;
     sourceName: string;
   };
+  /** Per-field provenance for the normalized competition. */
+  fieldMap?: FieldMapping[];
   note?: string;
   error?: string;
 }

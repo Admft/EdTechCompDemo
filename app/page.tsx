@@ -126,9 +126,37 @@ function HeroMiniCard({
 
 export default function Home() {
   return (
-    <main className="relative overflow-x-clip">
-      {/* ===== Dark zone: nav + hero + problem ===== */}
-      <div className="relative">
+    <main className="relative m-0 overflow-x-clip p-0">
+      {/* ===== Nav (fixed, flush to viewport top) ===== */}
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-night-950 shadow-[0_8px_32px_rgba(0,0,0,0.55)]">
+        <nav className="relative mx-auto flex h-14 max-w-7xl items-center px-5 sm:px-8">
+          <a href="#" className="relative z-10 flex items-center gap-2.5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-fuchsia-600 font-display text-sm font-bold text-white shadow-lg shadow-indigo-900/50">
+              E
+            </span>
+            <span className="font-display text-xl font-bold tracking-tight text-white">
+              Eship
+            </span>
+          </a>
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm font-medium text-slate-200 md:flex">
+            <a href="#problem" className="transition-colors hover:text-white">Problem</a>
+            <a href="#solution" className="transition-colors hover:text-white">Solution</a>
+            <a href="#discover" className="transition-colors hover:text-white">Discover</a>
+            <a href="#scraper" className="transition-colors hover:text-white">Live scraper</a>
+          </div>
+          <a
+            href={CALENDAR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-10 ml-auto rounded-full bg-gradient-to-r from-indigo-600 to-fuchsia-600 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-indigo-900/40 transition-all hover:brightness-110 sm:px-5 sm:text-sm"
+          >
+            Book a meeting
+          </a>
+        </nav>
+      </header>
+
+      {/* ===== Dark zone: hero + problem ===== */}
+      <div className="relative bg-night-950">
         {/* Background glow layer */}
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
           <div className="orb animate-glow-pulse left-[-10%] top-[-5%] h-[34rem] w-[34rem] bg-indigo-600/30" />
@@ -143,36 +171,8 @@ export default function Home() {
           />
         </div>
 
-        {/* ===== Nav ===== */}
-        <header className="sticky top-0 z-50 border-b border-white/5 bg-night-950/90 backdrop-blur-xl">
-          <nav className="mx-auto flex h-12 max-w-7xl items-center justify-between px-5 sm:px-8">
-            <a href="#" className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-fuchsia-600 font-display text-sm font-bold text-white shadow-lg shadow-indigo-900/50">
-                E
-              </span>
-              <span className="font-display text-lg font-bold tracking-tight text-white">
-                Eship
-              </span>
-            </a>
-            <div className="hidden items-center gap-7 text-sm text-slate-300 md:flex">
-              <a href="#problem" className="transition-colors hover:text-white">Problem</a>
-              <a href="#solution" className="transition-colors hover:text-white">Solution</a>
-              <a href="#discover" className="transition-colors hover:text-white">Discover</a>
-              <a href="#scraper" className="transition-colors hover:text-white">Live scraper</a>
-            </div>
-            <a
-              href={CALENDAR_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-gradient-to-r from-indigo-600 to-fuchsia-600 px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-indigo-900/40 transition-all hover:brightness-110 sm:px-5 sm:text-sm"
-            >
-              Book a meeting
-            </a>
-          </nav>
-        </header>
-
         {/* ===== Hero ===== */}
-        <section className="relative mx-auto max-w-7xl px-5 pb-24 pt-20 sm:px-8 sm:pt-28">
+        <section className="relative mx-auto max-w-7xl px-5 pb-24 pt-24 sm:px-8 sm:pt-32">
           <HeroMiniCard
             className="left-0 top-40"
             category="Robotics"
@@ -280,7 +280,7 @@ export default function Home() {
         </section>
 
         {/* ===== Problem (dark) ===== */}
-        <section id="problem" className="mx-auto max-w-7xl scroll-mt-24 px-5 py-20 sm:px-8">
+        <section id="problem" className="mx-auto max-w-7xl scroll-mt-28 px-5 py-20 sm:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-widest text-fuchsia-400">
               The problem
@@ -294,7 +294,7 @@ export default function Home() {
               right neighborhood, the right connections.
             </p>
           </div>
-          <div className="mt-12 grid gap-5 pb-16 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 pb-8 md:grid-cols-3">
             {PROBLEMS.map((p) => (
               <div key={p.title} className="glass glass-hover rounded-2xl p-7">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500/20 to-rose-500/5 text-2xl">
@@ -309,19 +309,14 @@ export default function Home() {
       </div>
 
       {/* ===== Bridge: dark → lavender ===== */}
-      <div aria-hidden className="bridge-dark-to-light relative h-44 w-full overflow-hidden sm:h-60">
-        <div className="orb left-[12%] top-4 h-56 w-56 bg-indigo-500/30" />
-        <div className="orb right-[10%] top-14 h-64 w-64 bg-fuchsia-400/20" />
-        <div className="orb left-[45%] top-20 h-48 w-48 bg-violet-400/25" />
+      <div aria-hidden className="bridge-dark-to-light relative -mt-24 h-72 w-full sm:-mt-32 sm:h-[28rem]">
+        <div className="orb left-[12%] top-12 h-72 w-72 bg-indigo-500/22" />
+        <div className="orb right-[10%] top-24 h-80 w-80 bg-fuchsia-400/16" />
+        <div className="orb left-[45%] top-32 h-64 w-64 bg-violet-400/18" />
       </div>
 
       {/* ===== Light zone: solution → scraper ===== */}
-      <div
-        className="relative overflow-hidden text-slate-900"
-        style={{
-          background: "linear-gradient(180deg, #f3f1fd 0%, #fbfaff 35%, #f0edfc 100%)",
-        }}
-      >
+      <div className="zone-light relative overflow-hidden text-slate-900">
         {/* Soft lavender/blue glow for the light zone */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="orb left-[-8%] top-[6rem] h-[28rem] w-[28rem] bg-indigo-300/40" />
@@ -331,8 +326,8 @@ export default function Home() {
         </div>
 
         {/* ===== Solution ===== */}
-        <section id="solution" className="relative mx-auto max-w-7xl scroll-mt-24 px-5 pb-20 pt-4 sm:px-8 sm:pt-8">
-          <div className="ring-gradient-light overflow-hidden rounded-3xl shadow-xl shadow-indigo-100/60">
+        <section id="solution" className="relative mx-auto max-w-7xl scroll-mt-28 px-5 pb-20 pt-20 sm:px-8 sm:pt-28">
+          <div className="ring-gradient-light overflow-hidden rounded-3xl bg-white/95 shadow-xl shadow-indigo-100/60 backdrop-blur-sm">
             <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:items-center">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-widest text-indigo-600">
@@ -451,7 +446,7 @@ export default function Home() {
         </section>
 
         {/* ===== Discovery marketplace ===== */}
-        <section id="discover" className="relative mx-auto max-w-7xl scroll-mt-24 px-5 py-20 sm:px-8">
+        <section id="discover" className="relative mx-auto max-w-7xl scroll-mt-28 px-5 py-20 sm:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-widest text-fuchsia-600">
               Competition discovery
@@ -470,7 +465,7 @@ export default function Home() {
         </section>
 
         {/* ===== Scraper demo ===== */}
-        <section id="scraper" className="relative mx-auto max-w-7xl scroll-mt-24 px-5 py-20 sm:px-8">
+        <section id="scraper" className="relative mx-auto max-w-7xl scroll-mt-28 px-5 py-20 sm:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-widest text-emerald-600">
               Live scraper demo
@@ -490,19 +485,20 @@ export default function Home() {
       </div>
 
       {/* ===== Bridge: lavender → dark ===== */}
-      <div aria-hidden className="bridge-light-to-dark relative h-44 w-full overflow-hidden sm:h-60">
-        <div className="orb left-[18%] top-10 h-56 w-56 bg-violet-400/25" />
-        <div className="orb right-[15%] top-6 h-48 w-48 bg-indigo-400/25" />
+      <div aria-hidden className="bridge-light-to-dark relative -mt-24 h-72 w-full sm:-mt-32 sm:h-[28rem]">
+        <div className="orb left-[18%] top-20 h-72 w-72 bg-violet-400/20" />
+        <div className="orb right-[15%] top-12 h-64 w-64 bg-indigo-400/20" />
+        <div className="orb left-[50%] top-40 h-56 w-56 -translate-x-1/2 bg-fuchsia-400/14" />
       </div>
 
       {/* ===== Final CTA (dark premium) ===== */}
-      <div className="relative bg-night-950">
+      <div className="relative -mt-20 bg-night-950 sm:-mt-28">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="orb animate-glow-pulse left-[10%] top-[-4rem] h-72 w-72 bg-indigo-600/25" />
-          <div className="orb right-[8%] top-[6rem] h-64 w-64 bg-fuchsia-600/15" />
+          <div className="orb animate-glow-pulse left-[10%] top-0 h-80 w-80 bg-indigo-600/20" />
+          <div className="orb right-[8%] top-[6rem] h-72 w-72 bg-fuchsia-600/12" />
         </div>
 
-        <section className="relative mx-auto max-w-7xl px-5 pb-20 pt-6 sm:px-8 sm:pt-10">
+        <section className="relative mx-auto max-w-7xl px-5 pb-20 pt-20 sm:px-8 sm:pt-28">
           <div className="ring-gradient relative overflow-hidden rounded-3xl p-10 text-center sm:p-16">
             <div aria-hidden className="orb left-1/2 top-[-8rem] h-64 w-[36rem] -translate-x-1/2 bg-indigo-600/25" />
             <h2 className="font-display relative text-3xl font-bold text-white sm:text-4xl">
@@ -532,7 +528,7 @@ export default function Home() {
         </section>
 
         {/* ===== Footer (dark) ===== */}
-        <footer className="relative border-t border-white/5">
+        <footer className="relative border-t border-white/5 bg-night-950">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-10 text-sm text-slate-500 sm:flex-row sm:px-8">
             <div className="flex items-center gap-2.5">
               <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-fuchsia-600 font-display text-xs font-bold text-white">

@@ -56,6 +56,8 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   background-color: var(--color-night-950);
 }
@@ -152,9 +154,16 @@ body {
   background: linear-gradient(
     180deg,
     #05060f 0%,
-    #12102e 30%,
-    #3b3478 60%,
-    #a49dde 84%,
+    #08071a 8%,
+    #100e28 16%,
+    #1a1640 26%,
+    #28235a 38%,
+    #3a3380 50%,
+    #5249a0 62%,
+    #7268b8 72%,
+    #9a8fd0 82%,
+    #c4bae8 90%,
+    #ddd6f4 96%,
     #f3f1fd 100%
   );
 }
@@ -163,10 +172,28 @@ body {
   background: linear-gradient(
     180deg,
     #f0edfc 0%,
-    #a49dde 18%,
-    #3b3478 46%,
-    #12102e 74%,
+    #e4dff6 6%,
+    #d0c8ec 14%,
+    #b5aad8 24%,
+    #9688c0 36%,
+    #7568a8 48%,
+    #5249a0 58%,
+    #3a3380 68%,
+    #28235a 76%,
+    #1a1640 84%,
+    #100e28 91%,
+    #08071a 96%,
     #05060f 100%
+  );
+}
+
+/* Softens hard edges where content zones meet gradient bridges */
+.zone-light {
+  background: linear-gradient(
+    180deg,
+    #f3f1fd 0%,
+    #fbfaff 35%,
+    #f0edfc 100%
   );
 }
 

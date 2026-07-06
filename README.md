@@ -70,9 +70,11 @@ The scraper (`lib/scraper.ts`) is deliberately narrow:
 
 1. **Approved source checked** — the URL is hardcoded to `https://www.societyforscience.org/isef/`. There is no way to pass a URL in.
 2. **Page fetched** — plain `fetch` with a 10s timeout and an identifying user agent.
-3. **Fields extracted** — page title, meta description, and top headings via cheerio.
-4. **Competition normalized** — extracted signals are merged with a curated normalization layer that fills fields the page doesn't reliably expose (category, eligibility, format, cost, skill level).
+3. **Fields extracted** — page title, meta description, and competition-related headings via cheerio (navigation and volunteer/outreach headings are filtered out).
+4. **Competition normalized** — extracted signals are merged with a curated normalization layer that fills fields the page doesn't reliably expose (category, eligibility, format, cost, skill level). The response includes a `fieldMap` recording per-field provenance: `extracted` from the page, `detected` via keywords on the page, or `curated` from the approved-source profile.
 5. **Added to discovery index** — the result is returned labeled `"Scraped + normalized from official source"`.
+
+One approved page yields one structured competition record — the index grows by adding approved sources, not by crawling one page for many competitions.
 
 If the live fetch fails (network error, non-200, timeout), the API returns a graceful error and the UI points back to the seed data, which already includes ISEF.
 

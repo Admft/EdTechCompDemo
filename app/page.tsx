@@ -309,10 +309,10 @@ export default function Home() {
       </div>
 
       {/* ===== Bridge: dark → lavender ===== */}
-      <div aria-hidden className="bridge-dark-to-light relative -mt-32 h-64 w-full sm:-mt-40 sm:h-80">
-        <div className="orb left-[12%] top-8 h-64 w-64 bg-indigo-500/22" />
-        <div className="orb right-[10%] top-16 h-72 w-72 bg-fuchsia-400/16" />
-        <div className="orb left-[45%] top-24 h-56 w-56 bg-violet-400/18" />
+      <div aria-hidden className="bridge-dark-to-light relative -mt-32 h-72 w-full sm:-mt-40 sm:h-[28rem]">
+        <div className="orb left-[12%] top-12 h-72 w-72 bg-indigo-500/22" />
+        <div className="orb right-[10%] top-24 h-80 w-80 bg-fuchsia-400/16" />
+        <div className="orb left-[45%] top-32 h-64 w-64 bg-violet-400/18" />
       </div>
 
       {/* ===== Light zone: solution → scraper ===== */}
@@ -326,7 +326,7 @@ export default function Home() {
         </div>
 
         {/* ===== Solution ===== */}
-        <section id="solution" className="relative z-10 mx-auto -mt-28 max-w-7xl scroll-mt-28 px-5 pb-20 sm:-mt-36 sm:px-8">
+        <section id="solution" className="relative z-10 mx-auto max-w-7xl scroll-mt-28 px-5 pb-20 pt-24 sm:px-8 sm:pt-32">
           <div className="ring-gradient-light overflow-hidden rounded-3xl bg-white/95 shadow-xl shadow-indigo-100/50 backdrop-blur-sm">
             <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:items-center">
               <div>

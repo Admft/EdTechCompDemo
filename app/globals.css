@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-night-950: #05060f;
+  --color-night-900: #090b1a;
+  --color-night-800: #10132a;
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-delayed: float 8s ease-in-out 1.5s infinite;
+  --animate-glow-pulse: glow-pulse 5s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s ease-out both;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(var(--float-rotate, 0deg));
+    }
+    50% {
+      transform: translateY(-14px) rotate(var(--float-rotate, 0deg));
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-night-950);
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(129, 140, 248, 0.35);
+}
+
+/* Frosted glass panel used across sections */
+.glass {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-hover {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(165, 180, 252, 0.35);
+  box-shadow:
+    0 20px 45px -18px rgba(99, 102, 241, 0.45),
+    0 0 0 1px rgba(165, 180, 252, 0.12);
+}
+
+/* Gradient headline text */
+.text-gradient {
+  background: linear-gradient(100deg, #c7d2fe 10%, #a5b4fc 35%, #e879f9 75%, #f0abfc 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Soft radial glow orbs */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+/* Thin gradient ring border for premium cards */
+.ring-gradient {
+  position: relative;
+  background:
+    linear-gradient(var(--color-night-900), var(--color-night-900)) padding-box,
+    linear-gradient(135deg, rgba(129, 140, 248, 0.7), rgba(217, 70, 239, 0.5), rgba(129, 140, 248, 0.15)) border-box;
+  border: 1px solid transparent;
+}

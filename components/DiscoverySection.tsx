@@ -46,14 +46,14 @@ export default function DiscoverySection() {
     <div>
       <FilterBar query={query} onChange={setQuery} />
 
-      <div className="mt-6 flex items-center justify-between text-sm text-slate-400">
+      <div className="mt-6 flex items-center justify-between text-sm text-slate-500">
         <span>
           {loading ? (
             "Loading competitions…"
           ) : (
             <>
-              Showing <span className="font-semibold text-white">{results.length}</span> of{" "}
-              <span className="font-semibold text-white">{total}</span> competitions
+              Showing <span className="font-semibold text-slate-900">{results.length}</span> of{" "}
+              <span className="font-semibold text-slate-900">{total}</span> competitions
             </>
           )}
         </span>
@@ -67,24 +67,27 @@ export default function DiscoverySection() {
       {loading ? (
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="glass h-72 animate-pulse rounded-2xl" />
+            <div
+              key={i}
+              className="h-72 animate-pulse rounded-2xl border border-indigo-100 bg-indigo-50/70"
+            />
           ))}
         </div>
       ) : results.length === 0 ? (
-        <div className="glass mt-6 flex flex-col items-center rounded-2xl px-6 py-16 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-500/10 text-2xl">
+        <div className="mt-6 flex flex-col items-center rounded-2xl border border-indigo-100 bg-white px-6 py-16 text-center shadow-sm shadow-indigo-100/60">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-2xl">
             🔭
           </div>
-          <h3 className="font-display mt-4 text-lg font-semibold text-white">
+          <h3 className="font-display mt-4 text-lg font-semibold text-slate-900">
             No competitions match those filters yet
           </h3>
-          <p className="mt-2 max-w-md text-sm text-slate-400">
+          <p className="mt-2 max-w-md text-sm text-slate-500">
             Try widening a filter or clearing your search — new competitions are added
             to the index as sources are approved.
           </p>
           <button
             onClick={() => setQuery({})}
-            className="mt-5 rounded-full border border-indigo-400/40 bg-indigo-500/10 px-5 py-2 text-sm font-semibold text-indigo-300 transition-colors hover:bg-indigo-500/20"
+            className="mt-5 rounded-full border border-indigo-200 bg-indigo-50 px-5 py-2 text-sm font-semibold text-indigo-700 transition-colors hover:bg-indigo-100"
           >
             Reset filters
           </button>

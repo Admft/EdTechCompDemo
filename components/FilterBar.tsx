@@ -16,7 +16,7 @@ const CATEGORIES = [
 ];
 
 const selectClass =
-  "rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-slate-200 outline-none transition-colors hover:border-indigo-400/40 focus:border-indigo-400/60 [&>option]:bg-night-900";
+  "rounded-xl border border-indigo-100 bg-[#f7f5fe] px-3 py-2.5 text-sm text-slate-700 outline-none transition-colors hover:border-indigo-300 focus:border-indigo-400 focus:bg-white";
 
 export default function FilterBar({
   query,
@@ -32,12 +32,12 @@ export default function FilterBar({
   );
 
   return (
-    <div className="glass rounded-2xl p-4 sm:p-5">
+    <div className="rounded-2xl border border-indigo-100 bg-white p-4 shadow-lg shadow-indigo-200/40 sm:p-5">
       <div className="relative">
         <svg
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500"
+          className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
         >
           <path
             fillRule="evenodd"
@@ -50,7 +50,7 @@ export default function FilterBar({
           value={query.q ?? ""}
           onChange={(e) => set({ q: e.target.value || undefined })}
           placeholder="Search by name, tag, skill, or keyword — try “robotics” or “free”"
-          className="w-full rounded-xl border border-white/10 bg-white/5 py-3 pl-11 pr-4 text-sm text-white placeholder:text-slate-500 outline-none transition-colors focus:border-indigo-400/60 focus:bg-white/[0.07]"
+          className="w-full rounded-xl border border-indigo-100 bg-[#f7f5fe] py-3 pl-11 pr-4 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-indigo-400 focus:bg-white"
         />
       </div>
 
@@ -110,7 +110,7 @@ export default function FilterBar({
       {hasActiveFilters && (
         <button
           onClick={() => onChange({})}
-          className="mt-3 text-xs font-medium text-indigo-300 transition-colors hover:text-indigo-200"
+          className="mt-3 text-xs font-medium text-indigo-600 transition-colors hover:text-indigo-500"
         >
           ✕ Clear all filters
         </button>

@@ -294,7 +294,7 @@ export default function Home() {
               right neighborhood, the right connections.
             </p>
           </div>
-          <div className="mt-12 grid gap-5 pb-16 md:grid-cols-3 sm:pb-20">
+          <div className="mt-12 grid gap-5 pb-4 md:grid-cols-3">
             {PROBLEMS.map((p) => (
               <div key={p.title} className="glass glass-hover rounded-2xl p-7">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500/20 to-rose-500/5 text-2xl">
@@ -309,14 +309,14 @@ export default function Home() {
       </div>
 
       {/* ===== Bridge: dark → lavender ===== */}
-      <div aria-hidden className="bridge-dark-to-light relative -mt-16 h-56 w-full sm:-mt-20 sm:h-72">
+      <div aria-hidden className="bridge-dark-to-light relative -mt-32 h-64 w-full sm:-mt-40 sm:h-80">
         <div className="orb left-[12%] top-8 h-64 w-64 bg-indigo-500/22" />
         <div className="orb right-[10%] top-16 h-72 w-72 bg-fuchsia-400/16" />
         <div className="orb left-[45%] top-24 h-56 w-56 bg-violet-400/18" />
       </div>
 
       {/* ===== Light zone: solution → scraper ===== */}
-      <div className="zone-light relative overflow-x-clip text-slate-900">
+      <div className="zone-light relative -mt-48 overflow-x-clip text-slate-900 sm:-mt-56">
         {/* Soft lavender/blue glow for the light zone */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="orb left-[-8%] top-[6rem] h-[28rem] w-[28rem] bg-indigo-300/40" />
@@ -326,8 +326,8 @@ export default function Home() {
         </div>
 
         {/* ===== Solution ===== */}
-        <section id="solution" className="relative mx-auto max-w-7xl scroll-mt-28 px-5 pb-20 pt-10 sm:px-8 sm:pt-14">
-          <div className="ring-gradient-light overflow-hidden rounded-3xl bg-white shadow-xl shadow-indigo-100/50">
+        <section id="solution" className="relative z-10 mx-auto -mt-28 max-w-7xl scroll-mt-28 px-5 pb-20 sm:-mt-36 sm:px-8">
+          <div className="ring-gradient-light overflow-hidden rounded-3xl bg-white/95 shadow-xl shadow-indigo-100/50 backdrop-blur-sm">
             <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:items-center">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-widest text-indigo-600">

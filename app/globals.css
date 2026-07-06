@@ -149,7 +149,7 @@ body {
     0 0 0 1px rgba(196, 189, 242, 0.5);
 }
 
-/* Vertical gradient bands that bridge the dark and light zones */
+/* Dark → light transition band (between problem and solution) */
 .bridge-dark-to-light {
   background: linear-gradient(
     180deg,
@@ -168,6 +168,7 @@ body {
   );
 }
 
+/* Light → dark transition band (above footer CTA) */
 .bridge-light-to-dark {
   background: linear-gradient(
     180deg,
@@ -185,12 +186,15 @@ body {
   );
 }
 
-/* Light zone background — matches bridge end color for a seamless handoff */
+/* Light zone — transparent at top so the bridge shows through behind the solution card */
 .zone-light {
   background: linear-gradient(
     180deg,
-    #f3f1fd 0%,
-    #fbfaff 30%,
+    transparent 0px,
+    transparent 40px,
+    rgba(243, 241, 253, 0.35) 100px,
+    #f3f1fd 180px,
+    #fbfaff 300px,
     #f0edfc 70%,
     #e8e4f8 88%,
     #ddd6f4 100%

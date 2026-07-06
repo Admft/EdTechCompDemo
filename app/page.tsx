@@ -316,7 +316,7 @@ export default function Home() {
       </div>
 
       {/* ===== Light zone: solution → scraper ===== */}
-      <div className="zone-light relative overflow-hidden text-slate-900">
+      <div className="zone-light relative overflow-x-clip text-slate-900">
         {/* Soft lavender/blue glow for the light zone */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="orb left-[-8%] top-[6rem] h-[28rem] w-[28rem] bg-indigo-300/40" />
@@ -465,7 +465,7 @@ export default function Home() {
         </section>
 
         {/* ===== Scraper demo ===== */}
-        <section id="scraper" className="relative mx-auto max-w-7xl scroll-mt-28 px-5 py-20 sm:px-8">
+        <section id="scraper" className="relative z-10 mx-auto max-w-7xl scroll-mt-28 px-5 py-20 pb-48 sm:px-8 sm:pb-56">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-widest text-emerald-600">
               Live scraper demo
@@ -478,29 +478,29 @@ export default function Home() {
               approved sources. Here&apos;s a working proof of concept.
             </p>
           </div>
-          <div className="mt-12 pb-8">
+          <div className="mt-12">
             <ScraperDemo />
           </div>
         </section>
       </div>
 
-      {/* ===== Bridge: lavender → dark ===== */}
+      {/* ===== Bridge: lavender → dark (mirrors top bridge) ===== */}
       <div aria-hidden className="bridge-light-to-dark relative -mt-24 h-72 w-full sm:-mt-32 sm:h-[28rem]">
-        <div className="orb left-[18%] top-20 h-72 w-72 bg-violet-400/20" />
-        <div className="orb right-[15%] top-12 h-64 w-64 bg-indigo-400/20" />
-        <div className="orb left-[50%] top-40 h-56 w-56 -translate-x-1/2 bg-fuchsia-400/14" />
+        <div className="orb left-[12%] top-12 h-72 w-72 bg-violet-400/22" />
+        <div className="orb right-[10%] top-24 h-80 w-80 bg-indigo-400/18" />
+        <div className="orb left-[45%] top-32 h-64 w-64 bg-fuchsia-400/16" />
       </div>
 
       {/* ===== Final CTA (dark premium) ===== */}
-      <div className="relative -mt-20 bg-night-950 sm:-mt-28">
+      <div className="relative bg-night-950">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="orb animate-glow-pulse left-[10%] top-0 h-80 w-80 bg-indigo-600/20" />
-          <div className="orb right-[8%] top-[6rem] h-72 w-72 bg-fuchsia-600/12" />
+          <div className="orb animate-glow-pulse left-[10%] top-[-2rem] h-80 w-80 bg-indigo-600/22" />
+          <div className="orb right-[8%] top-[4rem] h-72 w-72 bg-fuchsia-600/14" />
         </div>
 
-        <section className="relative mx-auto max-w-7xl px-5 pb-20 pt-20 sm:px-8 sm:pt-28">
-          <div className="ring-gradient relative overflow-hidden rounded-3xl p-10 text-center sm:p-16">
-            <div aria-hidden className="orb left-1/2 top-[-8rem] h-64 w-[36rem] -translate-x-1/2 bg-indigo-600/25" />
+        <section className="relative mx-auto max-w-7xl px-5 pb-20 pt-20 sm:px-8 sm:pt-24">
+          <div className="ring-gradient relative overflow-hidden rounded-3xl p-10 text-center shadow-2xl shadow-indigo-950/40 sm:p-16">
+            <div aria-hidden className="orb left-1/2 top-[-6rem] h-56 w-[32rem] -translate-x-1/2 bg-indigo-600/20" />
             <h2 className="font-display relative text-3xl font-bold text-white sm:text-4xl">
               Opportunity shouldn&apos;t depend on luck.
             </h2>

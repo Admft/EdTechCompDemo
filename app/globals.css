@@ -171,18 +171,16 @@ body {
 .bridge-light-to-dark {
   background: linear-gradient(
     180deg,
-    #f0edfc 0%,
-    #e4dff6 6%,
-    #d0c8ec 14%,
-    #b5aad8 24%,
-    #9688c0 36%,
-    #7568a8 48%,
-    #5249a0 58%,
-    #3a3380 68%,
-    #28235a 76%,
-    #1a1640 84%,
-    #100e28 91%,
-    #08071a 96%,
+    #ddd6f4 0%,
+    #c4bae8 8%,
+    #9a8fd0 18%,
+    #7268b8 28%,
+    #5249a0 38%,
+    #3a3380 50%,
+    #28235a 62%,
+    #1a1640 74%,
+    #100e28 84%,
+    #08071a 92%,
     #05060f 100%
   );
 }
@@ -192,8 +190,10 @@ body {
   background: linear-gradient(
     180deg,
     #f3f1fd 0%,
-    #fbfaff 35%,
-    #f0edfc 100%
+    #fbfaff 30%,
+    #f0edfc 70%,
+    #e8e4f8 88%,
+    #ddd6f4 100%
   );
 }
 
